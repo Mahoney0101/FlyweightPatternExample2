@@ -1,22 +1,21 @@
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Driver {
-    public static void main(String[] args) {
-        ArrayList<Computer> computers = new ArrayList();
+public class Driver
+{
+    public static void main(String[] args)
+    {
         Random random = new Random();
-        String [] RAM = {"8GB", "16GB" , "32GB"};
-        String [] processor = {"Intel", "AMD", "IBM"};
-        for(int i=0;i<100000;i++){
-            Computer laptop = new Laptop();
-            laptop.setRAM(RAM[random.nextInt(3)]);
-            laptop.setProcessor(processor[random.nextInt(3)]);
-            Computer PC = new PersonalComputer();
-            PC.setRAM(RAM[random.nextInt(3)]);
-            PC.setProcessor(processor[random.nextInt(3)]);
-            computers.add(laptop);
-            computers.add(PC);
+        String [] RAMS = {"16","8","32"};
+        String [] processor = {"AMD", "Intel","IBM"};
+        ArrayList<Computer> sales = new ArrayList<>();
+
+        for(int i=0;i<1000000;i++){
+            sales.add(ComputerFactory.getLaptop(RAMS[random.nextInt(3)], processor[random.nextInt(3)]));
+            sales.add(ComputerFactory.getPC(RAMS[random.nextInt(3)], processor[random.nextInt(3)]));
         }
-        System.out.println(computers.size());
+        System.out.println(sales.size());
+        System.out.println(ComputerFactory.getCache());
+
     }
 }

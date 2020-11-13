@@ -1,0 +1,25 @@
+@startuml
+skinparam  classAttributeIconSize 0
+
+    class Computer {
+        - RAM : String
+        - processor : String
+        + setProcessor()
+        + setRAM()
+    }
+
+    class Driver {
+        {static} + main()
+    }
+
+    class Laptop {
+    - laptopCase : String
+    }
+
+    class PersonalComputer {
+    }
+
+  Laptop -up-|> Computer
+  PersonalComputer -up-|> Computer
+
+@enduml
